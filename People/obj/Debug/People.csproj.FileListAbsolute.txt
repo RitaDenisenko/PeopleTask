@@ -1,0 +1,7 @@
+C:\Users\MiPro\source\repos\People\People\bin\Debug\People.exe.config
+C:\Users\MiPro\source\repos\People\People\bin\Debug\People.exe
+C:\Users\MiPro\source\repos\People\People\bin\Debug\People.pdb
+C:\Users\MiPro\source\repos\People\People\obj\Debug\People.csprojAssemblyReference.cache
+C:\Users\MiPro\source\repos\People\People\obj\Debug\People.csproj.CoreCompileInputs.cache
+C:\Users\MiPro\source\repos\People\People\obj\Debug\People.exe
+C:\Users\MiPro\source\repos\People\People\obj\Debug\People.pdb
