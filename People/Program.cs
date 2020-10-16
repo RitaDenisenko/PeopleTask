@@ -15,9 +15,10 @@ namespace People
             private String name;
             private String email;
 
-            private static bool isValidName(String newName)
+
+            private static String htmlToText(String html)
             {
-                return Regex.IsMatch(newName, "^[a-zA-Z]+[- a-zA-Z]*$");
+                return html.Replace("<", "&lt;").Replace(">", "&gt;");
             }
 
             private static bool isValidEmail(String newEmail)
@@ -32,15 +33,7 @@ namespace People
                 get { return name;  }
                 set
                 {
-                    if (isValidName(value))
-                    {
-                        name = value;
-                    }
-                    else
-                    {
-                        throw new Exception("Имя может содержать только символы латинского алфавита");
-                    }
-                    
+                    name = htmlToText(value);
                 }
             }
             public String Email
@@ -61,14 +54,7 @@ namespace People
 
             public Person(String newName, String newEmail)
             {
-                if (isValidName(newName))
-                {
-                    name = newName;
-                }
-                else
-                {
-                    throw new Exception("Имя может содержать только символы латинского алфавита");
-                }
+                name = htmlToText(newName);
                 if (isValidEmail(newEmail))
                 {
                     email = newEmail;
@@ -86,7 +72,7 @@ namespace People
         {
             Person[] people = { new Person("Alex", "alex1986@gmail.com"), new Person("Martin", "martin1987@gmail.com"), new Person("Alice", "alice1989@gmail.com"),
                                 new Person("Anna-Maria", "anna1990@gmail.com"), new Person("George", "george1991@gmail.com"), new Person("Linda", "linda1992@gmail.com")
-                                /*,new Person("Maxim<script>alert('Name!')</script>", "maxim1993@gmail.com")*/
+                                ,new Person("Maxim<script>alert('Name!')</script>", "maxim1993@gmail.com")
                               };
             
 
@@ -99,6 +85,7 @@ namespace People
             }
 
             html.Append(" </body>");
+
 
             File.WriteAllText("index.html", html.ToString());
             Console.WriteLine("HTML файл сформирован.");
